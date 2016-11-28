@@ -7,7 +7,7 @@
 #
 """
 scanner/ingestion module. From here we call various version-specific
-scanners, e.g. for Python 2.7 or 3.4.
+ingersters, e.g. for Python 2.7 or 3.4.
 """
 
 from __future__ import print_function
@@ -15,7 +15,7 @@ from __future__ import print_function
 import sys
 
 from uncompyle6 import PYTHON3, IS_PYPY
-from uncompyle6.scanners.tok import Token
+from uncompyle6.ingest.tok import Token
 
 # The byte code versions we support
 PYTHON_VERSIONS = (1.5,
@@ -272,15 +272,15 @@ def get_scanner(version, is_pypy=False, show_asm=None):
         if PYTHON3:
             import importlib
             if is_pypy:
-                scan = importlib.import_module("uncompyle6.scanners.pypy%s" % v_str)
+                scan = importlib.import_module("uncompyle6.ingest.pypy%s" % v_str)
             else:
-                scan = importlib.import_module("uncompyle6.scanners.scanner%s" % v_str)
+                scan = importlib.import_module("uncompyle6.ingest.scanner%s" % v_str)
             if False: print(scan)  # Avoid unused scan
         else:
             if is_pypy:
-                exec("import uncompyle6.scanners.pypy%s as scan" % v_str)
+                exec("import uncompyle6.ingest.pypy%s as scan" % v_str)
             else:
-                exec("import uncompyle6.scanners.scanner%s as scan" % v_str)
+                exec("import uncompyle6.ingest.scanner%s as scan" % v_str)
         if is_pypy:
             scanner = eval("scan.ScannerPyPy%s(show_asm=show_asm)" % v_str)
         else:

@@ -2,7 +2,7 @@
 # Copyright (c) 2005 by Dan Pascu <dan@windowmaker.org>
 # Copyright (c) 2000-2002 by hartmut Goebel <h.goebel@crazy-compilers.com>
 """
-Python 2 Generic bytecode scanner/deparser
+Python 2 Generic bytecode ingestion
 
 This overlaps various Python3's dis module, but it can be run from
 Python versions other than the version running this code. Notably,
@@ -28,11 +28,11 @@ from array import array
 from uncompyle6.scanner import op_has_argument
 from xdis.code import iscode
 
-import uncompyle6.scanner as scan
+import uncompyle6.scanner as ingest
 
-class Scanner2(scan.Scanner):
+class Scanner2(ingest.Scanner):
     def __init__(self, version, show_asm=None, is_pypy=False):
-        scan.Scanner.__init__(self, version, show_asm, is_pypy)
+        ingest.Scanner.__init__(self, version, show_asm, is_pypy)
         self.pop_jump_if = frozenset([self.opc.PJIF, self.opc.PJIT])
         self.jump_forward = frozenset([self.opc.JUMP_ABSOLUTE, self.opc.JUMP_FORWARD])
         # This is the 2.5+ default

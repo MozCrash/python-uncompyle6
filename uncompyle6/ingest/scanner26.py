@@ -14,13 +14,13 @@ from uncompyle6 import PYTHON3
 if PYTHON3:
     intern = sys.intern
 
-import uncompyle6.scanners.scanner2 as scan
+import uncompyle6.ingest.scanner2 as ingest
 
 # bytecode verification, verify(), uses JUMP_OPs from here
 from xdis.opcodes import opcode_26
 JUMP_OPs = opcode_26.JUMP_OPs
 
-class Scanner26(scan.Scanner2):
+class Scanner26(ingest.Scanner2):
     def __init__(self, show_asm=False):
         super(Scanner26, self).__init__(2.6, show_asm)
         self.stmt_opcodes = frozenset([

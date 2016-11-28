@@ -77,7 +77,7 @@ from uncompyle6.parser import get_python_parser
 from uncompyle6.parsers.astnode import AST
 from spark_parser import GenericASTTraversal, DEFAULT_DEBUG as PARSER_DEFAULT_DEBUG
 from uncompyle6.scanner import Code, get_scanner
-from uncompyle6.scanners.tok import Token, NoneToken
+from uncompyle6.ingest.tok import Token, NoneToken
 import uncompyle6.parser as python_parser
 from uncompyle6.semantics.make_function import (
     make_function2, make_function3, make_function3_annotate, find_globals)

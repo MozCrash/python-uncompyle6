@@ -1,12 +1,10 @@
 #  Copyright (c) 2015-2016 by Rocky Bernstein
 """
-Python 3.4 bytecode scanner/deparser
+Python 3.4 bytecode ingestion
 
 This sets up opcodes Python's 3.4 and calls a generalized
 scanner routine for Python 3.
 """
-
-from __future__ import print_function
 
 from xdis.opcodes import opcode_34 as opc
 
@@ -14,7 +12,7 @@ from xdis.opcodes import opcode_34 as opc
 JUMP_OPs = map(lambda op: opc.opname[op], opc.hasjrel + opc.hasjabs)
 
 
-from uncompyle6.scanners.scanner3 import Scanner3
+from uncompyle6.ingest.scanner3 import Scanner3
 class Scanner34(Scanner3):
 
     def __init__(self, show_asm=None):

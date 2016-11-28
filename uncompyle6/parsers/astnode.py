@@ -1,6 +1,6 @@
 import sys
 from uncompyle6 import PYTHON3
-from uncompyle6.scanners.tok import NoneToken
+from uncompyle6.ingest.tok import NoneToken
 from spark_parser.ast import AST as spark_AST
 
 if PYTHON3:

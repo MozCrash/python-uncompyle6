@@ -9,7 +9,7 @@ grammar parsing.
 
 from __future__ import print_function
 
-from uncompyle6.scanners.scanner2 import Scanner2
+from uncompyle6.ingest.scanner2 import Scanner2
 
 from uncompyle6 import PYTHON3
 if PYTHON3:

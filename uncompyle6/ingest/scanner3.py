@@ -2,7 +2,7 @@
 #  Copyright (c) 2005 by Dan Pascu <dan@windowmaker.org>
 #  Copyright (c) 2000-2002 by hartmut Goebel <h.goebel@crazy-compilers.com>
 """
-Python 3 Generic bytecode scanner/deparser
+Python 3 Generic bytecode ingestion
 
 This overlaps various Python3's dis module, but it can be run from
 Python versions other than the version running this code. Notably,

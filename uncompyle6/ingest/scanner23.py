@@ -1,29 +1,29 @@
 #  Copyright (c) 2016 by Rocky Bernstein
 """
-Python 2.4 bytecode scanner/deparser
+Python 2.3 bytecode ingestion
 
-This overlaps Python's 2.4's dis module, but it can be run from
+This overlaps Python's 2.3's dis module, but it can be run from
 Python 3 and other versions of Python. Also, we save token
 information for later use in deparsing.
 """
 
-import uncompyle6.scanners.scanner25 as scan
+import uncompyle6.ingest.scanner24 as ingest
 
 # bytecode verification, verify(), uses JUMP_OPs from here
-from xdis.opcodes import opcode_24
-JUMP_OPs = opcode_24.JUMP_OPs
+from xdis.opcodes import opcode_23
+JUMP_OPs = opcode_23.JUMP_OPs
 
 # We base this off of 2.5 instead of the other way around
 # because we cleaned things up this way.
 # The history is that 2.7 support is the cleanest,
 # then from that we got 2.6 and so on.
-class Scanner24(scan.Scanner25):
+class Scanner23(ingest.Scanner24):
     def __init__(self, show_asm):
-        scan.Scanner25.__init__(self, show_asm)
+        ingest.Scanner24.__init__(self, show_asm)
+        self.opc = opcode_23
+        self.opname = opcode_23.opname
         # These are the only differences in initialization between
-        # 2.4, 2.5 and 2.6
-        self.opc = opcode_24
-        self.opname = opcode_24.opname
-        self.version = 2.4
+        # 2.3-2.6
+        self.version = 2.3
         self.genexpr_name = '<generator expression>';
         return

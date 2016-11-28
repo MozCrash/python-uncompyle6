@@ -6,8 +6,8 @@ This massages tokenized 2.2 bytecode to make it more amenable for
 grammar parsing.
 """
 
-import uncompyle6.scanners.scanner23 as scan
-# from uncompyle6.scanners.scanner26 import ingest as  ingest26
+import uncompyle6.ingest.scanner23 as ingest
+# from uncompyle6.ingest.scanner26 import ingest as ingest26
 
 # bytecode verification, verify(), uses JUMP_OPs from here
 from xdis.opcodes import opcode_22
@@ -17,9 +17,9 @@ JUMP_OPs = opcode_22.JUMP_OPs
 # because we cleaned things up this way.
 # The history is that 2.7 support is the cleanest,
 # then from that we got 2.6 and so on.
-class Scanner22(scan.Scanner23):
+class Scanner22(ingest.Scanner23):
     def __init__(self, show_asm=False):
-        scan.Scanner23.__init__(self, show_asm)
+        ingest.Scanner23.__init__(self, show_asm)
         self.opc = opcode_22
         self.opname = opcode_22.opname
         self.version = 2.2

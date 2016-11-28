@@ -183,49 +183,49 @@ def cmp_code_objects(version, is_pypy, code_obj1, code_obj2,
             pass
         elif member == 'co_code' and not ignore_code:
             if version == 2.3:
-                import uncompyle6.scanners.scanner23 as scan
+                import uncompyle6.ingest.scanner23 as scan
                 scanner = scan.Scanner26()
             elif version == 2.4:
-                import uncompyle6.scanners.scanner24 as scan
+                import uncompyle6.ingest.scanner24 as scan
                 scanner = scan.Scanner25()
             elif version == 2.5:
-                import uncompyle6.scanners.scanner25 as scan
+                import uncompyle6.ingest.scanner25 as scan
                 scanner = scan.Scanner25()
             elif version == 2.6:
-                import uncompyle6.scanners.scanner26 as scan
+                import uncompyle6.ingest.scanner26 as scan
                 scanner = scan.Scanner26()
             elif version == 2.7:
                 if is_pypy:
-                    import uncompyle6.scanners.pypy27 as scan
+                    import uncompyle6.ingest.pypy27 as scan
                     scanner = scan.ScannerPyPy27(show_asm=False)
                 else:
-                    import uncompyle6.scanners.scanner27 as scan
+                    import uncompyle6.ingest.scanner27 as scan
                     scanner = scan.Scanner27()
             elif version == 3.1:
                 if is_pypy:
-                    import uncompyle6.scanners.pypy31 as scan
+                    import uncompyle6.ingest.pypy31 as scan
                     scanner = scan.ScannerPyPy31()
                 else:
-                    import uncompyle6.scanners.scanner32 as scan
+                    import uncompyle6.ingest.scanner32 as scan
                     scanner = scan.Scanner32()
             elif version == 3.2:
                 if is_pypy:
-                    import uncompyle6.scanners.pypy32 as scan
+                    import uncompyle6.ingest.pypy32 as scan
                     scanner = scan.ScannerPyPy32()
                 else:
-                    import uncompyle6.scanners.scanner32 as scan
+                    import uncompyle6.ingest.scanner32 as scan
                     scanner = scan.Scanner32()
             elif version == 3.3:
-                import uncompyle6.scanners.scanner33 as scan
+                import uncompyle6.ingest.scanner33 as scan
                 scanner = scan.Scanner33()
             elif version == 3.4:
-                import uncompyle6.scanners.scanner34 as scan
+                import uncompyle6.ingest.scanner34 as scan
                 scanner = scan.Scanner34()
             elif version == 3.5:
-                import uncompyle6.scanners.scanner35 as scan
+                import uncompyle6.ingest.scanner35 as scan
                 scanner = scan.Scanner35()
             elif version == 3.6:
-                import uncompyle6.scanners.scanner36 as scan
+                import uncompyle6.ingest.scanner36 as scan
                 scanner = scan.Scanner36()
 
             global JUMP_OPs
